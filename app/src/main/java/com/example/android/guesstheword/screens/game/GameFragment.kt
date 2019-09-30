@@ -58,6 +58,7 @@ class GameFragment : Fragment() {
 
         binding.gameViewModel = viewModel
 
+        binding.lifecycleOwner = this
 //        binding.correctButton.setOnClickListener { onCorrect() }
 //        binding.skipButton.setOnClickListener { onSkip() }
 //        binding.endGameButton.setOnClickListener { onEndGame() }
@@ -68,9 +69,9 @@ class GameFragment : Fragment() {
         })
 
         /** Setting up LiveData observation relationship **/
-        viewModel.word.observe(this, Observer { newWord ->
-            binding.wordText.text = newWord
-        })
+//        viewModel.word.observe(this, Observer { newWord ->
+//            binding.wordText.text = newWord
+//        })
 
         // Observer for the Game finished event
         viewModel.eventGameFinish.observe(this, Observer<Boolean> { hasFinished ->
